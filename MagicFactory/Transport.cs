@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MagicFactory.Engine;
 
 namespace MagicFactory
 {
@@ -36,29 +37,41 @@ namespace MagicFactory
         }
         public void TurnOn()
         {
-
+            Console.WriteLine("завёвся движок");
         }
 
         public void TurnOff()
         {
-
+            Console.WriteLine("заглох движок");
         }
-        
+
         
         public void ChangeDumperPosition(int degress)
         { 
             Speed = degress / 180 * 200;
         }
-        abstract class ElectricEngine
+        public abstract class ElectricEngine : Engine 
         {
             public int Voltage;
+
+            public class TeslaEngine : ElectricEngine
+            {
+
+            }
         }
-        abstract class InternalCombustionEngine
+
+        
+
+        public abstract class InternalCombustionEngine : Engine
         {
             public int Volume;
+
+            public class VazEngine : InternalCombustionEngine
+            {
+
+            }
         }
     }
-
     public abstract class Suspention
     {
         public int Speed;
@@ -116,11 +129,11 @@ namespace MagicFactory
         private Engine engine;
         private string RegistrationNumber;
 
-        private void StartsUp()
+        public virtual void StartsUp()
         {
 
         }
-        private void Stop()
+        public void Stop()
         {
 
         }
