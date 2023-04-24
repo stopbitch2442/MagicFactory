@@ -86,7 +86,8 @@ namespace MagicFactory
         public void ChangeSpeed(int speed)
         {
             Speed= speed;
-            foreach (var wheel in wheels) { 
+            foreach (var wheel in wheels) 
+            { 
             wheel.Speed = speed / 4;
             }
         }
@@ -112,12 +113,12 @@ namespace MagicFactory
 
     public class GasPedal : Pedals
     {
-        // Реализация педали газа
+        
     }
 
     public class BrakePedal : Pedals
     {
-        // Реализация педали тормоза
+        
     }
 
     
