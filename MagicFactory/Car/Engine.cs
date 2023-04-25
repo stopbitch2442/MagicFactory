@@ -1,10 +1,16 @@
-﻿namespace MagicFactory.Car
+﻿using static MagicFactory.Car.Engine;
+using static MagicFactory.Car.Engine.ElectricEngine;
+using static MagicFactory.Car.Engine.InternalCombustionEngine;
+
+namespace MagicFactory.Car
 {
+    
     public abstract class Engine
     {
+        
         public int Power;
-        public int Speed;
-
+        public double Speed;
+        
         public event EventHandler EventChangeSpeed;
 
         public void EventChangeSpeedExecutor()
@@ -16,20 +22,19 @@
         {
             EventChangeSpeed?.Invoke(this, EventArgs.Empty);
         }
-        public void TurnOn()
+        public string TurnOn()
         {
-            Console.WriteLine("завёвся движок");
+            return "завёвся движок";
         }
 
-        public void TurnOff()
+        public string TurnOff()
         {
-            Console.WriteLine("заглох движок");
+            return "заглох движок";
         }
 
-
-        public void ChangeDumperPosition(int degress)
+        public int ChangeDumperPosition(double degress)
         {
-            Speed = degress / 180 * 200;
+            return (int)(Speed = degress / 180 * 200);
         }
         public abstract class ElectricEngine : Engine
         {

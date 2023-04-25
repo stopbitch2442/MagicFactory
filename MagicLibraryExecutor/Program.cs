@@ -8,21 +8,23 @@ namespace MagicLibraryExecutor
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello bro");
             TestEngine();
 
         }
 
         public static void TestEngine()
         {
-            Console.WriteLine("Тестируем теслу...");
+            
             TeslaEngine teslaEngine = new TeslaEngine();
-            teslaEngine.TurnOn();
-            Console.WriteLine("Тестируем VAZ");
+            Console.WriteLine("Тестируем теслу: " + teslaEngine.TurnOn() + "Скорость при педали газа на 50 градусов = " + teslaEngine.ChangeDumperPosition(50));
+            
             VazEngine vazEngine = new VazEngine();
-            vazEngine.TurnOn();
-            vazEngine.TurnOff();
+            Console.WriteLine("Тестируем VAZ: " + vazEngine.TurnOn() + "Скорость при педали газа на 50 градусов = " + vazEngine.ChangeDumperPosition(50));
+
+            teslaEngine.ChangeDumperPosition(50);
         }
+
+       
 
     }
 }
