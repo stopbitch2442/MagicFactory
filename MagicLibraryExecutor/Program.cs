@@ -1,7 +1,6 @@
-﻿using MagicFactory;
-using static MagicFactory.Engine;
-using static MagicFactory.Engine.ElectricEngine;
-using static MagicFactory.Engine.InternalCombustionEngine;
+﻿using static MagicFactory.Car.Engine;
+using static MagicFactory.Car.Engine.ElectricEngine;
+using static MagicFactory.Car.Engine.InternalCombustionEngine;
 
 namespace MagicLibraryExecutor
 {
@@ -17,11 +16,11 @@ namespace MagicLibraryExecutor
         public static void TestEngine()
         {
             Console.WriteLine("Тестируем теслу...");
-           TeslaEngine teslaEngine = new TeslaEngine();
-           teslaEngine.TurnOn();
+            TeslaEngine teslaEngine = new TeslaEngine();
+            teslaEngine.TurnOn();
             Console.WriteLine("Тестируем VAZ");
-           VazEngine vazEngine = new VazEngine();
-           vazEngine.TurnOn();
+            VazEngine vazEngine = new VazEngine();
+            vazEngine.TurnOn();
             vazEngine.TurnOff();
         }
 
