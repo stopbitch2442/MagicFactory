@@ -11,6 +11,11 @@
             public int Speed;
         }
 
+        public class TeslaSuspention : Suspention
+        {
+
+        }
+
         public void ChangeSpeed(int speed)
         {
             Speed = speed;
