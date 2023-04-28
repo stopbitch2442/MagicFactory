@@ -1,4 +1,6 @@
-﻿namespace MagicFactory.Car
+﻿
+
+namespace MagicFactory.Car
 {
     public abstract class Car : Transport
     {
@@ -53,6 +55,7 @@
 
         public void GasPedal_EventPress(object sender, EventArgs e)
         {
+            Engine.CarEngine.ElectricEngine.TeslaEngine engine = new Engine.CarEngine.ElectricEngine.TeslaEngine();
             engine.ChangeDumperPosition(10);
         }
        

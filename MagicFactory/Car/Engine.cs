@@ -1,6 +1,5 @@
 ﻿using static MagicFactory.Car.Engine;
-using static MagicFactory.Car.Engine.ElectricEngine;
-using static MagicFactory.Car.Engine.InternalCombustionEngine;
+
 
 namespace MagicFactory.Car
 {
@@ -31,30 +30,31 @@ namespace MagicFactory.Car
         {
             return "заглох движок";
         }
-
-        public int ChangeDumperPosition(double degress)
+        public abstract class CarEngine : Engine
         {
-            return (int)(Speed = degress / 180 * 200);
-        }
-        public abstract class ElectricEngine : Engine
-        {
-            public int Voltage;
-
-            public class TeslaEngine : ElectricEngine
+            public double Speed;
+            public int ChangeDumperPosition(double degress)
             {
-
+                return (int)(Speed = degress / 180 * 200);
             }
-        }
-
-
-
-        public abstract class InternalCombustionEngine : Engine
-        {
-            public int Volume;
-
-            public class VazEngine : InternalCombustionEngine
+            public abstract class ElectricEngine : CarEngine
             {
+                public int Voltage;
 
+                public class TeslaEngine : ElectricEngine
+                {
+                    
+                }
+            }
+
+            public abstract class InternalCombustionEngine : CarEngine
+            {
+                public int Volume;
+
+                public class VazEngine : InternalCombustionEngine
+                {
+
+                }
             }
         }
     }

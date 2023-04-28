@@ -2,7 +2,6 @@
 using MagicFactory.Car;
 using MagicFactory;
 using static MagicFactory.Car.Suspention;
-using static MagicFactory.Car.Engine.ElectricEngine;
 using static MagicFactory.Car.Car;
 
 namespace MagicFactory.Tests
@@ -35,7 +34,7 @@ namespace MagicFactory.Tests
         public void ChangeDumperPosition_TestValue()
         {
             //arrange
-            var engine = new TeslaEngine();
+            var engine = new Engine.CarEngine.ElectricEngine.TeslaEngine();
             //act
             int changeResult = engine.ChangeDumperPosition(100);
             //assert
@@ -48,7 +47,7 @@ namespace MagicFactory.Tests
             //arrange
             Pedals[] pedals = new Pedals [] { new GasPedal(), new BrakePedal()};
             var suspention = new TeslaSuspention();
-            var engine = new TeslaEngine();
+            var engine = new Engine.CarEngine.ElectricEngine.TeslaEngine();
             var registrationNumber = "Р131ТЕ40";
             Car.Car car = new Tesla(pedals, suspention, engine, registrationNumber);
 
