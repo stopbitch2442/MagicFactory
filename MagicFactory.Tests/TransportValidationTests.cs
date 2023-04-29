@@ -3,6 +3,7 @@ using MagicFactory.Car;
 using MagicFactory;
 using static MagicFactory.Car.Suspention;
 using static MagicFactory.Car.Car;
+using static MagicFactory.Car.Engine;
 
 namespace MagicFactory.Tests
 {
@@ -42,21 +43,35 @@ namespace MagicFactory.Tests
         }
 
         [Fact]
-        public void GasPedal_EventPress_IncreaseEngineSpeed()
+        public void TeslaGasPedalEventTest()
         {
-            //arrange
-            Pedals[] pedals = new Pedals [] { new GasPedal(), new BrakePedal()};
-            var suspention = new TeslaSuspention();
-            var engine = new Engine.CarEngine.ElectricEngine.TeslaEngine();
-            var registrationNumber = "Р131ТЕ40";
-            Car.Car car = new Tesla(pedals, suspention, engine, registrationNumber);
+            // Arrange
+            GasPedal gasPedal = new GasPedal();
+            CarEngine.ElectricEngine.TeslaEngine engine = new CarEngine.ElectricEngine.TeslaEngine();
+            bool eventCall = false;
 
-            double startSpeed = engine.Speed;   //Speed = 0
-            //act
-            car.GasPedal_EventPress(this, EventArgs.Empty);
-            double afterSpeed = engine.Speed;
-            //assert
-            Assert.True(startSpeed < afterSpeed);
+            gasPedal.EventPress += (sender, args) =>
+            {
+                eventCall = true;
+            };
+
+            // Act
+            gasPedal.EventPressExecutor();
+
+            // Assert
+            Assert.True(eventCall);
+        }
+
+        [Fact]
+        public void ChangeSpeedGasPedal()
+        {
+            // Arrange
+            CarEngine.ElectricEngine.TeslaEngine teslaEngine = new CarEngine.ElectricEngine.TeslaEngine();
+            int nullSpeed = 0;
+            // Act
+            int speedAfterGas = teslaEngine.ChangeDumperPosition(100);
+            // Assert
+            Assert.True(nullSpeed < speedAfterGas);
         }
 
 

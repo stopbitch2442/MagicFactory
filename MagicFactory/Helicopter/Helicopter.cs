@@ -12,15 +12,15 @@ namespace MagicFactory.Helicopter
         private Pedals[] pedals;    // Direction control pedals, Rotor speed control pedals, Clutch pedals
         private Suspention suspention;
         private Engine engine;
-        private Propeller propeller;
-        private int heightInSpase;
-        public Helicopter(Pedals[] pedals, Suspention suspention, Engine engine, Propeller propeller, int heightInSpase)
+        private Propeller[] propeller;
+        private int maxHeightInSpase;
+        public Helicopter(Pedals[] pedals, Suspention suspention, Engine engine, Propeller[] propeller, int heightInSpase)
         {
             this.pedals = pedals;
             this.suspention = suspention;
             this.engine = engine;
             this.propeller = propeller;
-            this.heightInSpase = heightInSpase;
+            this.maxHeightInSpase = heightInSpase;
         }
     }
 }
