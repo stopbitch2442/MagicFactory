@@ -14,7 +14,7 @@ namespace MagicFactory.Helicopter
         public string material;
         public int heightInSpase = 1;
     }
-    public class MainPropeller : Propeller // Пропеллер отвечающий в основном за высоту
+    public class MainPropeller : Propeller // Пропеллер отвечающий в основном за высоту(y координата)
     {
         public int risePower; // Сила подьёма 
 
@@ -25,7 +25,7 @@ namespace MagicFactory.Helicopter
 
     }
 
-    public class TailPropeller : Propeller
+    public class TailPropeller : Propeller // Пропеллер отвечающий в основном за перемещение в плоскости (x координата)
     {
         public int tailPower; // Боковая сила
 

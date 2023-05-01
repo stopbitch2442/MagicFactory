@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MagicFactory.Helicopter
 {
-    public class Helicopter : Transport
+    public abstract class Helicopter : Transport
     {
-        private Pedals[] pedals;    // Direction control pedals, Rotor speed control pedals, Clutch pedals
+        private Pedals[] pedals;   
         private Suspention suspention;
         private Engine engine;
         private Propeller[] propeller;
@@ -21,6 +21,30 @@ namespace MagicFactory.Helicopter
             this.engine = engine;
             this.propeller = propeller;
             this.maxHeightInSpase = heightInSpase;
+        }
+
+        public string StartsUp()
+        {
+            if (maxHeightInSpase > 0)
+            {
+                return "БЖЖЖЖ вертолётик взлетает";
+            }
+            else
+            {
+                return "Вертолётик ещё не оторвался от земли";
+            }
+        }
+        public string Stop()
+        {
+            return "Наш вертолёт остановился";
+        }
+
+        public class Boeing : Helicopter
+        {
+            public Boeing(Pedals[] pedals, Suspention suspention, Engine engine, Propeller[] propeller, int heightInSpase) : base(pedals, suspention, engine, propeller, heightInSpase)
+            {
+
+            }
         }
     }
 }

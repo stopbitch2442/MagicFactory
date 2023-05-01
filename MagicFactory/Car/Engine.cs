@@ -57,6 +57,23 @@ namespace MagicFactory.Car
                 }
             }
         }
+
+        public abstract class HelicopterEngine : Engine
+        {
+            public int Volume;
+            public int Speed;
+
+            public class BoeingEngine : HelicopterEngine
+            {
+                public int SpeedRotation(int speed, int volume)
+                {
+                    speed = this.Speed;
+                    volume = this.Volume;
+                    int engineSpeed = speed * volume * 3;
+                    return engineSpeed;
+                }
+            }
+        }
     }
 
 }

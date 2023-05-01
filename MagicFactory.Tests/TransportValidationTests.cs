@@ -74,7 +74,7 @@ namespace MagicFactory.Tests
             Assert.True(nullSpeed < speedAfterGas);
         }
 
-
+        
 
     }
 }
